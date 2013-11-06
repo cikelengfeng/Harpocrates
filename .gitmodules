@@ -1,0 +1,3 @@
+[submodule "RAC"]
+	path = RAC
+	url = https://cikelengfeng@github.com/ReactiveCocoa/ReactiveCocoa.git
