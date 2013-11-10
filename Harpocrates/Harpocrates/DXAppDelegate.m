@@ -8,7 +8,8 @@
 
 #import "DXAppDelegate.h"
 
-#import "DXMasterViewController.h"
+#import "DXPasswordBookViewController.h"
+#import "DXAppManager.h"
 
 @implementation DXAppDelegate
 
@@ -20,8 +21,10 @@
 {
     // Override point for customization after application launch.
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-    DXMasterViewController *controller = (DXMasterViewController *)navigationController.topViewController;
+    DXPasswordBookViewController *controller = (DXPasswordBookViewController *)navigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
+    [DXAppManager sharedInstance].pManagedContext = self.managedObjectContext;
+    [DXAppManager sharedInstance].pAppDelegate = self;
     return YES;
 }
 							

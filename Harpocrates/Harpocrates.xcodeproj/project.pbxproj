@@ -15,8 +15,7 @@
 		4201F827182A20140019BD92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4201F826182A20140019BD92 /* main.m */; };
 		4201F82B182A20140019BD92 /* DXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4201F82A182A20140019BD92 /* DXAppDelegate.m */; };
 		4201F82E182A20140019BD92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4201F82C182A20140019BD92 /* Main.storyboard */; };
-		4201F831182A20140019BD92 /* Harpocrates.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4201F82F182A20140019BD92 /* Harpocrates.xcdatamodeld */; };
-		4201F834182A20140019BD92 /* DXMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4201F833182A20140019BD92 /* DXMasterViewController.m */; };
+		4201F834182A20140019BD92 /* DXPasswordBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4201F833182A20140019BD92 /* DXPasswordBookViewController.m */; };
 		4201F837182A20140019BD92 /* DXDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4201F836182A20140019BD92 /* DXDetailViewController.m */; };
 		4201F839182A20140019BD92 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4201F838182A20140019BD92 /* Images.xcassets */; };
 		4201F840182A20140019BD92 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4201F83F182A20140019BD92 /* XCTest.framework */; };
@@ -25,6 +24,18 @@
 		4201F843182A20150019BD92 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4201F81E182A20140019BD92 /* CoreData.framework */; };
 		4201F84B182A20150019BD92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4201F849182A20150019BD92 /* InfoPlist.strings */; };
 		4201F84D182A20150019BD92 /* HarpocratesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4201F84C182A20150019BD92 /* HarpocratesTests.m */; };
+		4201F885182A32D70019BD92 /* DXVerifyMasterEncryptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4201F883182A32D70019BD92 /* DXVerifyMasterEncryptionViewController.m */; };
+		4201F899182A45A80019BD92 /* _DXEncryptEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4201F892182A45A80019BD92 /* _DXEncryptEntity.m */; };
+		4201F89A182A45A80019BD92 /* _DXTpyrcneEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4201F894182A45A80019BD92 /* _DXTpyrcneEntity.m */; };
+		4201F89B182A45A80019BD92 /* DXEncryptEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4201F896182A45A80019BD92 /* DXEncryptEntity.m */; };
+		4201F89C182A45A80019BD92 /* DXTpyrcneEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4201F898182A45A80019BD92 /* DXTpyrcneEntity.m */; };
+		4201F8A3182A46980019BD92 /* _DXBaseEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4201F89E182A46980019BD92 /* _DXBaseEntity.m */; };
+		4201F8A4182A46980019BD92 /* DXBaseEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4201F8A0182A46980019BD92 /* DXBaseEntity.m */; };
+		4201F8A8182A46AC0019BD92 /* Harpocrates.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4201F8A6182A46AC0019BD92 /* Harpocrates.xcdatamodeld */; };
+		4201F8AB182A58C80019BD92 /* DXResetMasterPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4201F8AA182A58C80019BD92 /* DXResetMasterPasswordViewController.m */; };
+		4289EFDC182B446900E3C427 /* DXMasterEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 4289EFDB182B446900E3C427 /* DXMasterEncryption.m */; };
+		4289EFDF182B4BBD00E3C427 /* DXAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4289EFDE182B4BBD00E3C427 /* DXAppManager.m */; };
+		42D191AB182CB477004D0BD1 /* libReactiveCocoa-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4201F865182A25620019BD92 /* libReactiveCocoa-iOS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +45,62 @@
 			proxyType = 1;
 			remoteGlobalIDString = 4201F814182A20140019BD92;
 			remoteInfo = Harpocrates;
+		};
+		4201F862182A25620019BD92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4201F856182A25600019BD92 /* ReactiveCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 88037F8315056328001A5B19;
+			remoteInfo = ReactiveCocoa;
+		};
+		4201F864182A25620019BD92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4201F856182A25600019BD92 /* ReactiveCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 88F440AB153DAC820097B4C3;
+			remoteInfo = "ReactiveCocoa-iOS";
+		};
+		4201F866182A25620019BD92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4201F856182A25600019BD92 /* ReactiveCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 88CDF7DC15000FCF00163A9F;
+			remoteInfo = ReactiveCocoaTests;
+		};
+		4201F868182A25620019BD92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4201F856182A25600019BD92 /* ReactiveCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5FAF5223174D4C2000CAC810;
+			remoteInfo = "ReactiveCocoaTests-iOS";
+		};
+		4201F86A182A25620019BD92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4201F856182A25600019BD92 /* ReactiveCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1860F412177C91B500C7B3C9;
+			remoteInfo = "ReactiveCocoa-iOS-UIKitTestHost";
+		};
+		4201F86C182A25620019BD92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4201F856182A25600019BD92 /* ReactiveCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1860F430177C91B500C7B3C9;
+			remoteInfo = "ReactiveCocoa-iOS-UIKitTestHostTests";
+		};
+		4201F86E182A25620019BD92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4201F856182A25600019BD92 /* ReactiveCocoa.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D05AD39417F2D56F0080895B;
+			remoteInfo = "ReactiveCocoa-Mac";
+		};
+		4201F870182A257D0019BD92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4201F856182A25600019BD92 /* ReactiveCocoa.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 88F440AA153DAC820097B4C3;
+			remoteInfo = "ReactiveCocoa-iOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -50,9 +117,8 @@
 		4201F829182A20140019BD92 /* DXAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DXAppDelegate.h; sourceTree = "<group>"; };
 		4201F82A182A20140019BD92 /* DXAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DXAppDelegate.m; sourceTree = "<group>"; };
 		4201F82D182A20140019BD92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4201F830182A20140019BD92 /* Harpocrates.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Harpocrates.xcdatamodel; sourceTree = "<group>"; };
-		4201F832182A20140019BD92 /* DXMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DXMasterViewController.h; sourceTree = "<group>"; };
-		4201F833182A20140019BD92 /* DXMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DXMasterViewController.m; sourceTree = "<group>"; };
+		4201F832182A20140019BD92 /* DXPasswordBookViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DXPasswordBookViewController.h; sourceTree = "<group>"; };
+		4201F833182A20140019BD92 /* DXPasswordBookViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DXPasswordBookViewController.m; sourceTree = "<group>"; };
 		4201F835182A20140019BD92 /* DXDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DXDetailViewController.h; sourceTree = "<group>"; };
 		4201F836182A20140019BD92 /* DXDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DXDetailViewController.m; sourceTree = "<group>"; };
 		4201F838182A20140019BD92 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -61,6 +127,28 @@
 		4201F848182A20150019BD92 /* HarpocratesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HarpocratesTests-Info.plist"; sourceTree = "<group>"; };
 		4201F84A182A20150019BD92 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4201F84C182A20150019BD92 /* HarpocratesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HarpocratesTests.m; sourceTree = "<group>"; };
+		4201F856182A25600019BD92 /* ReactiveCocoa.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveCocoa.xcodeproj; path = ../RAC/ReactiveCocoaFramework/ReactiveCocoa.xcodeproj; sourceTree = "<group>"; };
+		4201F882182A32D70019BD92 /* DXVerifyMasterEncryptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXVerifyMasterEncryptionViewController.h; sourceTree = "<group>"; };
+		4201F883182A32D70019BD92 /* DXVerifyMasterEncryptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXVerifyMasterEncryptionViewController.m; sourceTree = "<group>"; };
+		4201F891182A45A80019BD92 /* _DXEncryptEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DXEncryptEntity.h; sourceTree = "<group>"; };
+		4201F892182A45A80019BD92 /* _DXEncryptEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _DXEncryptEntity.m; sourceTree = "<group>"; };
+		4201F893182A45A80019BD92 /* _DXTpyrcneEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DXTpyrcneEntity.h; sourceTree = "<group>"; };
+		4201F894182A45A80019BD92 /* _DXTpyrcneEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _DXTpyrcneEntity.m; sourceTree = "<group>"; };
+		4201F895182A45A80019BD92 /* DXEncryptEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXEncryptEntity.h; sourceTree = "<group>"; };
+		4201F896182A45A80019BD92 /* DXEncryptEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXEncryptEntity.m; sourceTree = "<group>"; };
+		4201F897182A45A80019BD92 /* DXTpyrcneEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXTpyrcneEntity.h; sourceTree = "<group>"; };
+		4201F898182A45A80019BD92 /* DXTpyrcneEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXTpyrcneEntity.m; sourceTree = "<group>"; };
+		4201F89D182A46980019BD92 /* _DXBaseEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _DXBaseEntity.h; sourceTree = "<group>"; };
+		4201F89E182A46980019BD92 /* _DXBaseEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _DXBaseEntity.m; sourceTree = "<group>"; };
+		4201F89F182A46980019BD92 /* DXBaseEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXBaseEntity.h; sourceTree = "<group>"; };
+		4201F8A0182A46980019BD92 /* DXBaseEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXBaseEntity.m; sourceTree = "<group>"; };
+		4201F8A7182A46AC0019BD92 /* Harpocrates.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Harpocrates.xcdatamodel; sourceTree = "<group>"; };
+		4201F8A9182A58C80019BD92 /* DXResetMasterPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXResetMasterPasswordViewController.h; sourceTree = "<group>"; };
+		4201F8AA182A58C80019BD92 /* DXResetMasterPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXResetMasterPasswordViewController.m; sourceTree = "<group>"; };
+		4289EFDA182B446900E3C427 /* DXMasterEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXMasterEncryption.h; sourceTree = "<group>"; };
+		4289EFDB182B446900E3C427 /* DXMasterEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXMasterEncryption.m; sourceTree = "<group>"; };
+		4289EFDD182B4BBD00E3C427 /* DXAppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXAppManager.h; sourceTree = "<group>"; };
+		4289EFDE182B4BBD00E3C427 /* DXAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXAppManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42D191AB182CB477004D0BD1 /* libReactiveCocoa-iOS.a in Frameworks */,
 				4201F81B182A20140019BD92 /* CoreGraphics.framework in Frameworks */,
 				4201F81F182A20140019BD92 /* CoreData.framework in Frameworks */,
 				4201F81D182A20140019BD92 /* UIKit.framework in Frameworks */,
@@ -111,6 +200,7 @@
 		4201F817182A20140019BD92 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4201F856182A25600019BD92 /* ReactiveCocoa.xcodeproj */,
 				4201F818182A20140019BD92 /* Foundation.framework */,
 				4201F81A182A20140019BD92 /* CoreGraphics.framework */,
 				4201F81C182A20140019BD92 /* UIKit.framework */,
@@ -123,15 +213,11 @@
 		4201F820182A20140019BD92 /* Harpocrates */ = {
 			isa = PBXGroup;
 			children = (
-				4201F829182A20140019BD92 /* DXAppDelegate.h */,
-				4201F82A182A20140019BD92 /* DXAppDelegate.m */,
-				4201F82C182A20140019BD92 /* Main.storyboard */,
-				4201F832182A20140019BD92 /* DXMasterViewController.h */,
-				4201F833182A20140019BD92 /* DXMasterViewController.m */,
-				4201F835182A20140019BD92 /* DXDetailViewController.h */,
-				4201F836182A20140019BD92 /* DXDetailViewController.m */,
+				4289EFD9182B442400E3C427 /* Model */,
+				4289EFD8182B43F600E3C427 /* ViewController */,
+				4289EFD1182B43D400E3C427 /* App */,
+				4201F88D182A45770019BD92 /* CoreData */,
 				4201F838182A20140019BD92 /* Images.xcassets */,
-				4201F82F182A20140019BD92 /* Harpocrates.xcdatamodeld */,
 				4201F821182A20140019BD92 /* Supporting Files */,
 			);
 			path = Harpocrates;
@@ -166,6 +252,76 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4201F857182A25600019BD92 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4201F863182A25620019BD92 /* ReactiveCocoa.framework */,
+				4201F865182A25620019BD92 /* libReactiveCocoa-iOS.a */,
+				4201F867182A25620019BD92 /* ReactiveCocoaTests.octest */,
+				4201F869182A25620019BD92 /* ReactiveCocoaTests-iOS.octest */,
+				4201F86B182A25620019BD92 /* ReactiveCocoa-iOS-UIKitTestHost.app */,
+				4201F86D182A25620019BD92 /* ReactiveCocoa-iOS-UIKitTestHostTests.octest */,
+				4201F86F182A25620019BD92 /* libReactiveCocoa-Mac.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4201F88D182A45770019BD92 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				4201F8A6182A46AC0019BD92 /* Harpocrates.xcdatamodeld */,
+				4201F89D182A46980019BD92 /* _DXBaseEntity.h */,
+				4201F89E182A46980019BD92 /* _DXBaseEntity.m */,
+				4201F89F182A46980019BD92 /* DXBaseEntity.h */,
+				4201F8A0182A46980019BD92 /* DXBaseEntity.m */,
+				4201F891182A45A80019BD92 /* _DXEncryptEntity.h */,
+				4201F892182A45A80019BD92 /* _DXEncryptEntity.m */,
+				4201F893182A45A80019BD92 /* _DXTpyrcneEntity.h */,
+				4201F894182A45A80019BD92 /* _DXTpyrcneEntity.m */,
+				4201F895182A45A80019BD92 /* DXEncryptEntity.h */,
+				4201F896182A45A80019BD92 /* DXEncryptEntity.m */,
+				4201F897182A45A80019BD92 /* DXTpyrcneEntity.h */,
+				4201F898182A45A80019BD92 /* DXTpyrcneEntity.m */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		4289EFD1182B43D400E3C427 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4201F829182A20140019BD92 /* DXAppDelegate.h */,
+				4201F82A182A20140019BD92 /* DXAppDelegate.m */,
+				4201F82C182A20140019BD92 /* Main.storyboard */,
+				4289EFDD182B4BBD00E3C427 /* DXAppManager.h */,
+				4289EFDE182B4BBD00E3C427 /* DXAppManager.m */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		4289EFD8182B43F600E3C427 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4201F882182A32D70019BD92 /* DXVerifyMasterEncryptionViewController.h */,
+				4201F883182A32D70019BD92 /* DXVerifyMasterEncryptionViewController.m */,
+				4201F8A9182A58C80019BD92 /* DXResetMasterPasswordViewController.h */,
+				4201F8AA182A58C80019BD92 /* DXResetMasterPasswordViewController.m */,
+				4201F832182A20140019BD92 /* DXPasswordBookViewController.h */,
+				4201F833182A20140019BD92 /* DXPasswordBookViewController.m */,
+				4201F835182A20140019BD92 /* DXDetailViewController.h */,
+				4201F836182A20140019BD92 /* DXDetailViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		4289EFD9182B442400E3C427 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4289EFDA182B446900E3C427 /* DXMasterEncryption.h */,
+				4289EFDB182B446900E3C427 /* DXMasterEncryption.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -176,10 +332,12 @@
 				4201F811182A20140019BD92 /* Sources */,
 				4201F812182A20140019BD92 /* Frameworks */,
 				4201F813182A20140019BD92 /* Resources */,
+				4201F887182A3DDC0019BD92 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4201F871182A257D0019BD92 /* PBXTargetDependency */,
 			);
 			name = Harpocrates;
 			productName = Harpocrates;
@@ -214,6 +372,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = DeanXu;
 				TargetAttributes = {
+					4201F814182A20140019BD92 = {
+						DevelopmentTeam = YRPD2K838S;
+					};
 					4201F83D182A20140019BD92 = {
 						TestTargetID = 4201F814182A20140019BD92;
 					};
@@ -230,6 +391,12 @@
 			mainGroup = 4201F80C182A20140019BD92;
 			productRefGroup = 4201F816182A20140019BD92 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4201F857182A25600019BD92 /* Products */;
+					ProjectRef = 4201F856182A25600019BD92 /* ReactiveCocoa.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				4201F814182A20140019BD92 /* Harpocrates */,
@@ -237,6 +404,58 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		4201F863182A25620019BD92 /* ReactiveCocoa.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ReactiveCocoa.framework;
+			remoteRef = 4201F862182A25620019BD92 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4201F865182A25620019BD92 /* libReactiveCocoa-iOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libReactiveCocoa-iOS.a";
+			remoteRef = 4201F864182A25620019BD92 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4201F867182A25620019BD92 /* ReactiveCocoaTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ReactiveCocoaTests.octest;
+			remoteRef = 4201F866182A25620019BD92 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4201F869182A25620019BD92 /* ReactiveCocoaTests-iOS.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "ReactiveCocoaTests-iOS.octest";
+			remoteRef = 4201F868182A25620019BD92 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4201F86B182A25620019BD92 /* ReactiveCocoa-iOS-UIKitTestHost.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "ReactiveCocoa-iOS-UIKitTestHost.app";
+			remoteRef = 4201F86A182A25620019BD92 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4201F86D182A25620019BD92 /* ReactiveCocoa-iOS-UIKitTestHostTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "ReactiveCocoa-iOS-UIKitTestHostTests.octest";
+			remoteRef = 4201F86C182A25620019BD92 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4201F86F182A25620019BD92 /* libReactiveCocoa-Mac.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libReactiveCocoa-Mac.a";
+			remoteRef = 4201F86E182A25620019BD92 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		4201F813182A20140019BD92 /* Resources */ = {
@@ -259,16 +478,42 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4201F887182A3DDC0019BD92 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd ~/git/Harpocrates/Harpocrates/Harpocrates/CoreData\nmogenerator --template-var arc=true --model Harpocrates.xcdatamodeld/Harpocrates.xcdatamodel";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4201F811182A20140019BD92 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4201F837182A20140019BD92 /* DXDetailViewController.m in Sources */,
+				4201F8A4182A46980019BD92 /* DXBaseEntity.m in Sources */,
 				4201F82B182A20140019BD92 /* DXAppDelegate.m in Sources */,
-				4201F831182A20140019BD92 /* Harpocrates.xcdatamodeld in Sources */,
-				4201F834182A20140019BD92 /* DXMasterViewController.m in Sources */,
+				4201F89A182A45A80019BD92 /* _DXTpyrcneEntity.m in Sources */,
+				4201F8A8182A46AC0019BD92 /* Harpocrates.xcdatamodeld in Sources */,
+				4201F885182A32D70019BD92 /* DXVerifyMasterEncryptionViewController.m in Sources */,
+				4201F8AB182A58C80019BD92 /* DXResetMasterPasswordViewController.m in Sources */,
+				4201F89B182A45A80019BD92 /* DXEncryptEntity.m in Sources */,
+				4289EFDC182B446900E3C427 /* DXMasterEncryption.m in Sources */,
+				4201F899182A45A80019BD92 /* _DXEncryptEntity.m in Sources */,
+				4201F89C182A45A80019BD92 /* DXTpyrcneEntity.m in Sources */,
+				4201F834182A20140019BD92 /* DXPasswordBookViewController.m in Sources */,
 				4201F827182A20140019BD92 /* main.m in Sources */,
+				4201F8A3182A46980019BD92 /* _DXBaseEntity.m in Sources */,
+				4289EFDF182B4BBD00E3C427 /* DXAppManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +532,11 @@
 			isa = PBXTargetDependency;
 			target = 4201F814182A20140019BD92 /* Harpocrates */;
 			targetProxy = 4201F844182A20150019BD92 /* PBXContainerItemProxy */;
+		};
+		4201F871182A257D0019BD92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ReactiveCocoa-iOS";
+			targetProxy = 4201F870182A257D0019BD92 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -393,12 +643,23 @@
 		4201F851182A20150019BD92 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Harpocrates/Harpocrates-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts/include",
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = "Harpocrates/Harpocrates-Info.plist";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -406,12 +667,23 @@
 		4201F852182A20150019BD92 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Harpocrates/Harpocrates-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts/include",
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = "Harpocrates/Harpocrates-Info.plist";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -477,6 +749,7 @@
 				4201F852182A20150019BD92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4201F853182A20150019BD92 /* Build configuration list for PBXNativeTarget "HarpocratesTests" */ = {
 			isa = XCConfigurationList;
@@ -485,16 +758,17 @@
 				4201F855182A20150019BD92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		4201F82F182A20140019BD92 /* Harpocrates.xcdatamodeld */ = {
+		4201F8A6182A46AC0019BD92 /* Harpocrates.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				4201F830182A20140019BD92 /* Harpocrates.xcdatamodel */,
+				4201F8A7182A46AC0019BD92 /* Harpocrates.xcdatamodel */,
 			);
-			currentVersion = 4201F830182A20140019BD92 /* Harpocrates.xcdatamodel */;
+			currentVersion = 4201F8A7182A46AC0019BD92 /* Harpocrates.xcdatamodel */;
 			path = Harpocrates.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="DXBaseEntity" representedClassName="DXBaseEntity" isAbstract="YES">
+        <attribute name="aTimeStamp" optional="YES" attributeType="Date">
+            <userInfo/>
+        </attribute>
+        <userInfo/>
+    </entity>
+    <entity name="DXEncryptEntity" representedClassName="DXEncryptEntity" parentEntity="DXBaseEntity" syncable="YES">
+        <attribute name="aKey" optional="YES" attributeType="String" minValueString="1" indexed="YES" syncable="YES"/>
+        <attribute name="aPassword" optional="YES" attributeType="String" minValueString="1" syncable="YES"/>
+    </entity>
+    <entity name="DXTpyrcneEntity" representedClassName="DXTpyrcneEntity" parentEntity="DXBaseEntity" syncable="YES">
+        <attribute name="aEx" optional="YES" attributeType="String" minValueString="1" syncable="YES"/>
+        <attribute name="aKey" optional="YES" attributeType="String" minValueString="1" indexed="YES" syncable="YES"/>
+        <attribute name="aPassword" optional="YES" attributeType="String" minValueString="1" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="DXBaseEntity" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="DXEncryptEntity" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="DXTpyrcneEntity" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>

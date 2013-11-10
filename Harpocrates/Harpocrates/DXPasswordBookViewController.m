@@ -6,15 +6,19 @@
 //  Copyright (c) 2013年 DeanXu. All rights reserved.
 //
 
-#import "DXMasterViewController.h"
+#import "DXPasswordBookViewController.h"
 
 #import "DXDetailViewController.h"
+#import "DXMasterEncryption.h"
+#import "DXVerifyMasterEncryptionViewController.h"
+#import "DXAppManager.h"
 
-@interface DXMasterViewController ()
+
+@interface DXPasswordBookViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
 
-@implementation DXMasterViewController
+@implementation DXPasswordBookViewController
 
 - (void)awakeFromNib
 {
@@ -29,6 +33,25 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    [[[DXAppManager sharedInstance].pAppDelegate rac_signalForSelector:@selector(applicationDidBecomeActive:) fromProtocol:@protocol(UIApplicationDelegate)] subscribeNext:^(RACTuple *animated) {
+        @weakify(self);
+        NSLog(@"hi, viewDidAppear! animated %@",animated.first);
+        if ([[DXMasterEncryption sharedInstance]isMasterEncrypted]) {
+            [self_weak_ performSegueWithIdentifier:@"verifyMasterEncryption" sender:nil];
+        }else {
+            [self_weak_ performSegueWithIdentifier:@"setMasterEncryption" sender:nil];
+        }
+    }];
+    [[self rac_signalForSelector:@selector(prepareForSegue:sender:)] subscribeNext:^(RACTuple *x) {
+        UIStoryboardSegue *segue = x.first;
+        NSLog(@"hi, prepareForSegue!segue %@",segue);
+        if ([[segue identifier] isEqualToString:@"showDetail"]) {
+            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+            DXEncryptEntity *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+            [[segue destinationViewController] setDetailItem:object];
+        }else if ([[segue identifier] isEqualToString:@"verifyMasterEncryption"]) {
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,7 +68,8 @@
     
     // If appropriate, configure the new managed object.
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
+    [newManagedObject setValue:[NSDate date] forKey:@"aTimeStamp"];
+    [newManagedObject setValue:[[NSDate date] description] forKey:@"aKey"];
     
     // Save the context.
     NSError *error = nil;
@@ -91,10 +115,7 @@
         
         NSError *error = nil;
         if (![context save:&error]) {
-             // Replace this implementation with code to handle the error appropriately.
-             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
         }
     }   
 }
@@ -109,8 +130,10 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        DXEncryptEntity *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         [[segue destinationViewController] setDetailItem:object];
+    }else if ([[segue identifier] isEqualToString:@"setMasterEncryption"]) {
+        
     }
 }
 
@@ -124,14 +147,14 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"DXEncryptEntity" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"aTimeStamp" ascending:NO];
     NSArray *sortDescriptors = @[sortDescriptor];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
@@ -216,7 +239,7 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"timeStamp"] description];
+    cell.textLabel.text = [[object valueForKey:@"aKey"] description];
 }
 
 @end

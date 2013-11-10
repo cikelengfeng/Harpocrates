@@ -6,11 +6,8 @@
 //  Copyright (c) 2013年 DeanXu. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 
-#import <CoreData/CoreData.h>
-
-@interface DXMasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface DXPasswordBookViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
