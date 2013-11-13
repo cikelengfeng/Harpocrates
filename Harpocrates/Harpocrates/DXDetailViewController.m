@@ -29,14 +29,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *pTitleAlertLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pPasswordAlertLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pSavingAlertLabel;
+@property (weak, nonatomic) IBOutlet UIButton *pCopyPdButton;
 
 - (BOOL)isTitleExists:(NSString *)title;
 - (BOOL)isTitleFormateValid:(NSString *)title;
 - (BOOL)isPasswordFormateValid:(NSString *)pd;
 - (BOOL)saveEncryption;
+- (void)copyTextToPasteboard:(NSString *)text;
 
 @property (strong) RACSubject *daemonSignal;
-
 
 @end
 
@@ -134,14 +135,16 @@
             [self_weak_.navigationController popViewControllerAnimated:YES];
         }
     }];
+    [[self.pCopyPdButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @weakify(self);
+        [UIPasteboard generalPasteboard].string = self_weak_.pPasswordTextField.text;
+    }];
 }
 
 - (BOOL)saveEncryption
 {
     NSManagedObjectContext *context = [DXAppManager sharedInstance].pManagedContext;
     
-    // If appropriate, configure the new managed object.
-    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
     [self.detailItem setValue:[NSDate date] forKey:@"aTimeStamp"];
     [self.detailItem setValue:self.pTitleTextField.text forKey:@"aKey"];
     [self.detailItem setValue:self.pPasswordTextField.text forKey:@"aPassword"];
@@ -174,6 +177,14 @@
 - (BOOL)isPasswordFormateValid:(NSString *)pd
 {
     return pd.length > 5;
+}
+
+- (void)copyTextToPasteboard:(NSString *)text
+{
+    if (text.length > 0) {
+        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+        pasteboard.string = text;
+    }
 }
 
 - (void)dealloc
