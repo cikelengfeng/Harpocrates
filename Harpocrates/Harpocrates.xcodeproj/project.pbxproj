@@ -35,6 +35,7 @@
 		4201F8AB182A58C80019BD92 /* DXResetMasterPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4201F8AA182A58C80019BD92 /* DXResetMasterPasswordViewController.m */; };
 		4289EFDC182B446900E3C427 /* DXMasterEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 4289EFDB182B446900E3C427 /* DXMasterEncryption.m */; };
 		4289EFDF182B4BBD00E3C427 /* DXAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4289EFDE182B4BBD00E3C427 /* DXAppManager.m */; };
+		429E3EE11858119600325B9A /* RFPasswordGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 429E3EDF1858119600325B9A /* RFPasswordGenerator.m */; };
 		42D191AB182CB477004D0BD1 /* libReactiveCocoa-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4201F865182A25620019BD92 /* libReactiveCocoa-iOS.a */; };
 /* End PBXBuildFile section */
 
@@ -149,6 +150,8 @@
 		4289EFDB182B446900E3C427 /* DXMasterEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXMasterEncryption.m; sourceTree = "<group>"; };
 		4289EFDD182B4BBD00E3C427 /* DXAppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXAppManager.h; sourceTree = "<group>"; };
 		4289EFDE182B4BBD00E3C427 /* DXAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXAppManager.m; sourceTree = "<group>"; };
+		429E3EDF1858119600325B9A /* RFPasswordGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RFPasswordGenerator.m; path = ../../PasswordGen/RFPasswordGeneratorClass/RFPasswordGenerator.m; sourceTree = "<group>"; };
+		429E3EE01858119600325B9A /* RFPasswordGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RFPasswordGenerator.h; path = ../../PasswordGen/RFPasswordGeneratorClass/RFPasswordGenerator.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +216,7 @@
 		4201F820182A20140019BD92 /* Harpocrates */ = {
 			isa = PBXGroup;
 			children = (
+				429E3ED81858117B00325B9A /* PasswordGen */,
 				4289EFD9182B442400E3C427 /* Model */,
 				4289EFD8182B43F600E3C427 /* ViewController */,
 				4289EFD1182B43D400E3C427 /* App */,
@@ -320,6 +324,15 @@
 				4289EFDB182B446900E3C427 /* DXMasterEncryption.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		429E3ED81858117B00325B9A /* PasswordGen */ = {
+			isa = PBXGroup;
+			children = (
+				429E3EDF1858119600325B9A /* RFPasswordGenerator.m */,
+				429E3EE01858119600325B9A /* RFPasswordGenerator.h */,
+			);
+			name = PasswordGen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -501,6 +514,7 @@
 			files = (
 				4201F837182A20140019BD92 /* DXDetailViewController.m in Sources */,
 				4201F8A4182A46980019BD92 /* DXBaseEntity.m in Sources */,
+				429E3EE11858119600325B9A /* RFPasswordGenerator.m in Sources */,
 				4201F82B182A20140019BD92 /* DXAppDelegate.m in Sources */,
 				4201F89A182A45A80019BD92 /* _DXTpyrcneEntity.m in Sources */,
 				4201F8A8182A46AC0019BD92 /* Harpocrates.xcdatamodeld in Sources */,

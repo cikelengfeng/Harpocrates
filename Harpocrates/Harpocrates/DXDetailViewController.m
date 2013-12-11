@@ -8,6 +8,7 @@
 
 #import "DXDetailViewController.h"
 #import "DXAppManager.h"
+#import "RFPasswordGenerator.h"
 
 #define kPasswordErrorDomain @"password_error"
 #define kPasswordFormateErrorCode 0
@@ -30,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *pPasswordAlertLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pSavingAlertLabel;
 @property (weak, nonatomic) IBOutlet UIButton *pCopyPdButton;
+@property (weak, nonatomic) IBOutlet UIButton *pGenPdButton;
 
 - (BOOL)isTitleExists:(NSString *)title;
 - (BOOL)isTitleFormateValid:(NSString *)title;
@@ -37,7 +39,8 @@
 - (BOOL)saveEncryption;
 - (void)copyTextToPasteboard:(NSString *)text;
 
-@property (strong) RACSubject *daemonSignal;
+@property (strong) RACSubject *pDaemonSignal;
+@property (strong) NSString *pPassword;
 
 @end
 
@@ -49,7 +52,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        _daemonSignal = [RACSubject subject];
+        _pDaemonSignal = [RACSubject subject];
     }
     return self;
 }
@@ -60,40 +63,47 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    RACSignal *detailItem = RACObserve(self,detailItem);
+    RACSignal *detailItemSignal = RACObserve(self,detailItem);
+    RACSignal *passwordSignal = RACObserve(self,pPassword);
     
-    RAC(self,pTitleTextField.text) = [detailItem map:^NSString *(DXEncryptEntity *value) {
+    
+    RAC(self,pTitleTextField.text) = [detailItemSignal map:^NSString *(DXEncryptEntity *value) {
         return value.aKey;
     }];
-    RAC(self,pPasswordTextField.text) = [detailItem map:^NSString *(DXEncryptEntity *value) {
+    RAC(self,pPasswordTextField.text) = passwordSignal;
+    
+    RAC(self,pPassword) = [RACSignal merge:@[self.pPasswordTextField.rac_textSignal,[detailItemSignal map:^NSString *(DXEncryptEntity *value) {
         return value.aPassword;
-    }];
-    RACSignal *passwordSignal = [self.pPasswordTextField.rac_textSignal map:^id(id value) {
+    }],[[self.pGenPdButton rac_signalForControlEvents:UIControlEventTouchUpInside] map:^id(id value) {
+        return [RFPasswordGenerator generateHighSecurityPassword];
+    }]]];
+    
+    RACSignal *passwordCheckSignal = [passwordSignal map:^id(id value) {
         @weakify(self);
         BOOL result = [self_weak_ isPasswordFormateValid:value];
         if (!result) {
-            [self_weak_.daemonSignal sendNext:[NSError errorWithDomain:kPasswordErrorDomain code:kPasswordFormateErrorCode userInfo:nil]];
+            [self_weak_.pDaemonSignal sendNext:[NSError errorWithDomain:kPasswordErrorDomain code:kPasswordFormateErrorCode userInfo:nil]];
         }else {
-            [self_weak_.daemonSignal sendNext:kDaemonSignalPasswordOK];
+            [self_weak_.pDaemonSignal sendNext:kDaemonSignalPasswordOK];
         }
         return @(result);
     }];
-    RACSignal *titleSignal = [self.pTitleTextField.rac_textSignal map:^id(id value) {
+    RACSignal *titleCheckSignal = [self.pTitleTextField.rac_textSignal map:^id(id value) {
         @weakify(self);
         BOOL exists = [self_weak_ isTitleExists:value];
-        BOOL formate = [self_weak_ isTitleFormateValid:value];
+        BOOL formatCorrect = [self_weak_ isTitleFormateValid:value];
         if (exists) {
-            [self_weak_.daemonSignal sendNext:[NSError errorWithDomain:kTitleErrorDomain code:kTitleExistsErrorCode userInfo:nil]];
+            [self_weak_.pDaemonSignal sendNext:[NSError errorWithDomain:kTitleErrorDomain code:kTitleExistsErrorCode userInfo:nil]];
         }
-        if (!formate) {
-            [self_weak_.daemonSignal sendNext:[NSError errorWithDomain:kTitleErrorDomain code:kTitleFormateErrorCode userInfo:nil]];
+        if (!formatCorrect) {
+            [self_weak_.pDaemonSignal sendNext:[NSError errorWithDomain:kTitleErrorDomain code:kTitleFormateErrorCode userInfo:nil]];
         }
-        if (!exists && formate) {
-            [self_weak_.daemonSignal sendNext:kDaemonSignalTitleOK];
+        if (!exists && formatCorrect) {
+            [self_weak_.pDaemonSignal sendNext:kDaemonSignalTitleOK];
         }
-        return @(!exists && formate);
+        return @(!exists && formatCorrect);
     }];
-    RACSignal *formateValidSiglnal = [RACSignal combineLatest:@[passwordSignal,titleSignal] reduce:^id(NSNumber *pdv,NSNumber *titlev){
+    RACSignal *formateValidSiglnal = [RACSignal combineLatest:@[passwordCheckSignal,titleCheckSignal] reduce:^id(NSNumber *pdv,NSNumber *titlev){
         return @([pdv boolValue] && [titlev boolValue]);
     }];
     RAC(self,pConfirmButton.enabled) = formateValidSiglnal;
@@ -102,28 +112,28 @@
         self_weak_.pConfirmButton.enabled = ![self_weak_ saveEncryption];
     }];
     
-    RAC(self,pTitleAlertLabel.text) = [[self.daemonSignal filter:^BOOL(NSError *value) {
+    RAC(self,pTitleAlertLabel.text) = [[self.pDaemonSignal filter:^BOOL(NSError *value) {
         return [value isKindOfClass:[NSError class]] && [value.domain isEqualToString:kTitleErrorDomain];
     }]map:^id(NSError *value) {
         if (value.code == kTitleExistsErrorCode) {
-            return @"此标题已存在";
+            return @"title is existed";
         }else if (value.code == kTitleFormateErrorCode) {
-            return @"标题不能为空";
+            return @"title MUST NOT be empty";
         }else {
             return [value description];
         }
     }];
     
-    RAC(self,pPasswordAlertLabel.text) = [[self.daemonSignal filter:^BOOL(NSError *value) {
+    RAC(self,pPasswordAlertLabel.text) = [[self.pDaemonSignal filter:^BOOL(NSError *value) {
         return [value isKindOfClass:[NSError class]] && [value.domain isEqualToString:kPasswordErrorDomain];
     }]map:^id(NSError *value) {
         if (value.code == kPasswordFormateErrorCode) {
-            return @"密码长度不应少于6位";
+            return @"password MUST NOT be shorter than 6";
         }else {
             return [value description];
         }
     }];
-    [[self.daemonSignal filter:^BOOL(id value) {
+    [[self.pDaemonSignal filter:^BOOL(id value) {
         return [value isKindOfClass:[NSString class]];
     }]subscribeNext:^(NSString *value) {
         @weakify(self);
@@ -147,16 +157,16 @@
     
     [self.detailItem setValue:[NSDate date] forKey:@"aTimeStamp"];
     [self.detailItem setValue:self.pTitleTextField.text forKey:@"aKey"];
-    [self.detailItem setValue:self.pPasswordTextField.text forKey:@"aPassword"];
+    [self.detailItem setValue:self.pPassword forKey:@"aPassword"];
     
     // Save the context.
     NSError *error = nil;
     if (![context save:&error]) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        [self.daemonSignal sendNext:error];
+        [self.pDaemonSignal sendNext:error];
         return NO;
     }
-    [self.daemonSignal sendNext:kDaemonSignalSaveOK];
+    [self.pDaemonSignal sendNext:kDaemonSignalSaveOK];
     return YES;
 }
 
@@ -189,7 +199,7 @@
 
 - (void)dealloc
 {
-    [_daemonSignal sendCompleted];
+    [_pDaemonSignal sendCompleted];
 }
 
 @end

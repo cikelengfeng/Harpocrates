@@ -1,3 +1,6 @@
 [submodule "RAC"]
 	path = RAC
 	url = https://cikelengfeng@github.com/ReactiveCocoa/ReactiveCocoa.git
+[submodule "PasswordGen"]
+	path = PasswordGen
+	url = https://github.com/rfunk82/RFPasswordGenerator.git
